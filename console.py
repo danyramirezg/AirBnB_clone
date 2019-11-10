@@ -13,7 +13,7 @@ class HBNBCommand(cmd.Cmd):
         """Command to exit the program"""
         return True
 
-    def do_EOF(self):
+    def do_EOF(self, args):
         """Command on console (CTRL + D)"""
         return True
 
