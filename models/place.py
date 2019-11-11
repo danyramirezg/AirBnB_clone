@@ -5,13 +5,13 @@ import models
 from models.base_model import BaseModel
 
 
-class State(BaseModel):
+class Place(BaseModel):
     """A class place that inherits from BaseModel"""
 
-    city_id = " "
-    user_id = " "
-    name = " "
-    description = " "
+    city_id = ""
+    user_id = ""
+    name = ""
+    description = ""
     number_rooms = 0
     number_bathrooms = 0
     max_guest = 0

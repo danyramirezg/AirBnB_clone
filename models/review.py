@@ -5,9 +5,9 @@ import models
 from models.base_model import BaseModel
 
 
-class State(BaseModel):
+class Review(BaseModel):
     """A class Review that inherits from BaseModel"""
 
-    place_id = " "
-    user_id = " "
-    text = " "
+    place_id = ""
+    user_id = ""
+    text = ""
