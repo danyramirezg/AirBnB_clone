@@ -5,7 +5,7 @@ import models
 from models.base_model import BaseModel
 
 
-class State(BaseModel):
+class Amenity(BaseModel):
     """A class Amenity that inherits from BaseModel"""
 
-    name = " "
+    name = ""
