@@ -132,6 +132,13 @@ class HBNBCommand(cmd.Cmd):
         """An empty line doesn't execute anything"""
         pass
 
+    def default(self, args):
+        """Handling of default command."""
+        try:
+            self.onecmd(eval(args))
+        except:
+            print("*** Unknown syntax: " + args)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

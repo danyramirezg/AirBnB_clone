@@ -4,6 +4,7 @@
 from uuid import uuid4
 from datetime import datetime
 import models
+from cmd import Cmd
 
 
 class BaseModel:
@@ -44,3 +45,24 @@ class BaseModel:
         new_dict["created_at"] = new_dict["created_at"].isoformat()
         new_dict["updated_at"] = new_dict["updated_at"].isoformat()
         return new_dict
+
+    @classmethod
+    def all(cls):
+        """All instances of a class."""
+        return "all " + cls.__name__
+
+    @classmethod
+    def count(cls):
+        """Count instances of a class."""
+        instances = models.storage.all()
+        counter = 0
+        for key, val in instances.items():
+            if(val.__class__.__name__ == cls.__name__):
+                counter += 1
+        print(counter)
+        return "\n"
+
+    @classmethod
+    def show(cls, id=None):
+        """Shows a given instance by id."""
+        return "show " + cls.__name__ + " " + id
