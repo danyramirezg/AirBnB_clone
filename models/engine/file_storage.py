@@ -2,7 +2,8 @@
 """Module File Storage"""
 
 import json
-from base_model import BaseModel
+from os.path import isfile
+from ..base_model import BaseModel
 
 
 class FileStorage:
@@ -23,19 +24,22 @@ class FileStorage:
 
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id"""
-        FileStorage.__objects[obj.__class__.__name__ + "." + obj.id] = obj.to_dict()
+        FileStorage.__objects[obj.__class__.__name__ + "." + obj.id] = obj
 
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""
+        JsObjs = {}
+        for key, val in FileStorage.__objects.items():
+            JsObjs[key] = val.to_dict()
         with open(FileStorage.__file_path, "w", encoding="UTF-8") as f:
-            json.dump(FileStorage.__objects, f)
+            json.dump(JsObjs, f)
 
     def reload(self):
-        """Deserialize the JSON file to __objects (only if the JSON file (__file_path) exists ; otherwise, do nothing.
+        """Deserialize the JSON file to __objects (only if __file_path exists.
          If the file doesn’t exist, no exception should be raised)"""
-
-        with open(FileStorage.__file_path, "r", encoding="UTF-8") as f:
-            dict_objects = json.load(f)
-            for key, val in dict_objects.items():
-                new_obj = BaseModel(**val)
-                FileStorage.__objects[key] = new_obj
+        if isfile(FileStorage.__file_path):
+            with open(FileStorage.__file_path, "r", encoding="UTF-8") as f:
+                dict_objects = json.load(f)
+                for key, val in dict_objects.items():
+                    new_obj = BaseModel(**val)
+                    FileStorage.__objects[key] = new_obj
