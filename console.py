@@ -4,6 +4,8 @@
 import cmd
 import shlex
 import models
+from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -24,12 +26,11 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(args)
         if args == []:
             print("** class name missing **")
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         else:
             models.storage.reload()
-            if args[0] == "BaseModel":
-                new = models.base_model.BaseModel()
+            new = eval(args[0])()
             new.save()
             print(new.id)
 
@@ -42,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
             for ins, obj in models.storage.all().items():
                 ans_list.append(obj.__str__())
             print(ans_list)
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         else:
             models.storage.reload()
@@ -57,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(args)
         if args == []:
             print("** class name missing **")
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -74,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(args)
         if args == []:
             print("** class name missing **")
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -93,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(args)
         if args == []:
             print("** class name missing **")
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")

@@ -4,6 +4,7 @@
 import json
 from os.path import isfile
 from ..base_model import BaseModel
+from ..user import User
 
 
 class FileStorage:
@@ -41,5 +42,5 @@ class FileStorage:
             with open(FileStorage.__file_path, "r", encoding="UTF-8") as f:
                 dict_objects = json.load(f)
                 for key, val in dict_objects.items():
-                    new_obj = BaseModel(**val)
+                    new_obj = eval(val["__class__"])(**val)
                     FileStorage.__objects[key] = new_obj
