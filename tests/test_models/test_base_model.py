@@ -69,9 +69,10 @@ class Test_BaseModel(unittest.TestCase):
         self.assertEqual(printb,
                          "[BaseModel] ({}) {}".format(b.id, b.__dict__))
 
-    # def test_save(self):
-    #     """Testing the save function"""
-    #     b = BaseModel()
-    #     b.save()
+    def test_save(self):
+        """Testing the save function"""
+        b = BaseModel()
+        b.save()
+        self.assertEqual(1, 1)
 
     # do test to_dict, kwarg
