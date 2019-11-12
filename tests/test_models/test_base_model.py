@@ -15,7 +15,10 @@ class Test_BaseModel(unittest.TestCase):
 
     def test_setUp(self):
         """SetUps tests"""
-        pass
+        try:
+            os.remove("file.json")
+        except:
+            pass
 
     def test_tearDown(self):
         """"Restart tests"""
@@ -73,6 +76,4 @@ class Test_BaseModel(unittest.TestCase):
         """Testing the save function"""
         b = BaseModel()
         b.save()
-        self.assertEqual(1, 1)
-
-    # do test to_dict, kwarg
+        self.assertTrue(os.path.isfile("file.json"))
