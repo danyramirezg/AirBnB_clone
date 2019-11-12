@@ -2,7 +2,7 @@
 
 #### Holberton School Airbnb Clone - Command Interpreter Project Description
 
-![Holberton hbnb](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20191112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191112T153237Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=97a51059fea7e1c1d8a24aa14999e4ef55aa31cb01479e76dd5131bf0b919cb9)
+![Holberton hbnb](holbi.jpg)
 
 This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
 
