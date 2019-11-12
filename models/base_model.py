@@ -63,6 +63,27 @@ class BaseModel:
         return "\n"
 
     @classmethod
-    def show(cls, id=None):
+    def show(cls, id=""):
         """Shows a given instance by id."""
         return "show " + cls.__name__ + " " + id
+
+    @classmethod
+    def destroy(cls, id=""):
+        """Deletes an instance of a class."""
+        return "destroy " + cls.__name__ + " " + id
+
+    @classmethod
+    def update(cls, id="", attr="", val=""):
+        """Updates an instance of a class."""
+        if id != "" and type(attr) is dict:
+            for ins, obj in models.storage.all().items():
+                if obj.__class__.__name__ == cls.__name__ and obj.id == id:
+                    for key, value in attr.items():
+                        new_arg = value
+                        if hasattr(obj, key):
+                            new_arg = (type(obj.__dict__[key]))(value)
+                        obj.__dict__[key] = new_arg
+                        models.storage.save()
+                    return "\n"
+        else:
+            return "update " + cls.__name__ + " " + id + " " + attr + " " + val
