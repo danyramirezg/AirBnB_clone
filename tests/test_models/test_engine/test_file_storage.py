@@ -45,7 +45,7 @@ class Test_File_Storage(unittest.TestCase):
         self.assertTrue(len(FileStorage.reload.__doc__) > 1)
 
     def test_isinstance(self):
-        """Test the instance"""
+        """"Test if is an instance of the class"""
         obj = FileStorage()
         self.assertIsInstance(obj, FileStorage)
 
