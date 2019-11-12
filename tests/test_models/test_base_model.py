@@ -46,10 +46,12 @@ class Test_BaseModel(unittest.TestCase):
         self.assertTrue(len(BaseModel.to_dict.__doc__) > 1)
 
     def test_isinstance(self):
+        """"Test if is an instance of the class"""
         obj = BaseModel()
         self.assertIsInstance(obj, BaseModel)
 
     def test_id_v4_uuid(self):
+        """Test version 4 of UUID"""
         obj = BaseModel()
         test_uuid = uuid.UUID(obj.id, version=4)
         self.assertEqual(str(test_uuid), obj.id, "Error: Different version")
