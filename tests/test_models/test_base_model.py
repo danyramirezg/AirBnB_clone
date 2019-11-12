@@ -3,6 +3,7 @@
 
 import unittest
 from models.base_model import BaseModel
+from models import storage
 import pep8
 import os
 import uuid
@@ -74,6 +75,9 @@ class Test_BaseModel(unittest.TestCase):
 
     def test_save(self):
         """Testing the save function"""
-        b = BaseModel()
-        b.save()
+        obj = BaseModel()
+        obj.save()
+        key = "BaseModel.{}".format(obj.id)
+        comp = storage._FileStorage__objects[key]
+        self.assertEqual(obj.id, comp.id)
         self.assertTrue(os.path.isfile("file.json"))
