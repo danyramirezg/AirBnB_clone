@@ -81,3 +81,4 @@ class Test_BaseModel(unittest.TestCase):
         comp = storage._FileStorage__objects[key]
         self.assertEqual(obj.id, comp.id)
         self.assertTrue(os.path.isfile("file.json"))
+        self.assertEqual(BaseModel.all(), "all BaseModel")
