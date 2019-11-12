@@ -85,5 +85,6 @@ class BaseModel:
                         obj.__dict__[key] = new_arg
                         models.storage.save()
                     return "\n"
+            return "update " + cls.__name__ + " " + id
         else:
             return "update " + cls.__name__ + " " + id + " " + attr + " " + val
