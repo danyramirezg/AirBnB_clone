@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         new_arg = args[3]
                         if hasattr(obj, str(args[2])):
-                            new_arg = (type(obj.__dict__[args[2]]))(args[3])
+                            new_arg = (type(getattr(obj, args[2])))(args[3])
                         obj.__dict__[args[2]] = new_arg
                         models.storage.save()
                         return
