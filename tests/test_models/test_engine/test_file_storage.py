@@ -3,6 +3,7 @@
 
 import unittest
 from models.engine.file_storage import FileStorage
+from models.base_model import BaseModel
 import pep8
 import os
 import uuid
@@ -13,15 +14,9 @@ class Test_File_Storage(unittest.TestCase):
     Class for testing File storage class.
     """
 
-    # def test_setUp(self):
-    #     """SetUps tests"""
-
-    # def test_tearDown(self):
-    #     """"Restart tests"""
-    #     if os.path.exists(self.file_path):
-    #         os.remove(self.file_path)
-    #     if os.path.exists('new'):
-    #         os.rename('new', self.file_path)
+    def setUp(self):
+        """SetUps tests"""
+        self.storage = FileStorage()
 
     def test_pep8_base_model(self):
         """ Test for PEP8 ok. """
@@ -48,5 +43,29 @@ class Test_File_Storage(unittest.TestCase):
         """"Test if is an instance of the class"""
         obj = FileStorage()
         self.assertIsInstance(obj, FileStorage)
+
+    def test_save(self):
+        """Testing the save function"""
+        obj = BaseModel()
+        self.storage.new(obj)
+        self.storage.save()
+        key = "BaseModel.{}".format(obj.id)
+        #comp = storage._FileStorage__objects[key]
+        self.storage.reload()
+        self.assertDictEqual(self.storage.all()[key].to_dict(), obj.to_dict())
+
+    def test_path(self):
+        """Testing if the path exists"""
+        self.assertTrue(os.path.exists(self.storage._FileStorage__file_path))
+
+
+        # def test_tearDown(self):
+        #      """"Restart tests"""
+        #  if os.path.exists(self.file_path):
+        #     os.remove(self.file_path)
+        # if os.path.exists('file.json')
+        #   os.rename('file.json', self.file_path)
+
+    #def test_reload(self):
 
     # test reload, all, save
