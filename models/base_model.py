@@ -81,7 +81,7 @@ class BaseModel:
                     for key, value in attr.items():
                         new_arg = value
                         if hasattr(obj, key):
-                            new_arg = (type(obj.__dict__[key]))(value)
+                            new_arg = (type(getattr(obj, key)))(value)
                         obj.__dict__[key] = new_arg
                         models.storage.save()
                     return "\n"
