@@ -82,3 +82,13 @@ class Test_BaseModel(unittest.TestCase):
         self.assertEqual(obj.id, comp.id)
         self.assertTrue(os.path.isfile("file.json"))
         self.assertNotEqual(obj.created_at, obj.updated_at)
+
+    def test_to_dict(self):
+        """Tests the to_dict function."""
+        obj = BaseModel()
+        new_dict = obj.__dict__.copy()
+        new_dict["__class__"] = obj.__class__.__name__
+        new_dict["created_at"] = new_dict["created_at"].isoformat()
+        new_dict["updated_at"] = new_dict["updated_at"].isoformat()
+        comparing = obj.to_dict()
+        self.assertDictEqual(new_dict, comparing)
