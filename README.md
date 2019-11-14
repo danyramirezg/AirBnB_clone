@@ -22,7 +22,7 @@ git clone https://github.com/danyramirezg/AirBnB_clone.git
 cd AirBnB_clone
 ```
 #### Usage
-Interactive Mode
+#####Interactive Mode
 ```
 $ ./console.py
 (hbnb) help
@@ -36,7 +36,7 @@ EOF  help  quit
 (hbnb) quit
 $
 ```
-Non-Interactive Mode
+##### Non-Interactive Mode
 ```
 $ echo "help" | ./console.py
 (hbnb)
@@ -93,7 +93,25 @@ File Name | Description
 
 ### Example Usage
 ```python3
+dany@dany-laptop:~/code/AirBnB_clone$ ./console.py 
+(hbnb) help
 
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb) create Place
+e9672773-b189-4938-93fa-3ee99abd60ca
+(hbnb) all Place
+["[Place] (e9672773-b189-4938-93fa-3ee99abd60ca) {'id': 'e9672773-b189-4938-93fa-3ee99abd60ca', 'created_at': datetime.datetime(2019, 11, 13, 19, 42, 3, 491688), 'updated_at': datetime.datetime(2019, 11, 13, 19, 42, 3, 491721), '__class__': 'Place'}"]
+(hbnb) destroy Place
+** instance id missing **
+(hbnb) destroy Place e9672773-b189-4938-93fa-3ee99abd60ca
+(hbnb) show Place
+** instance id missing **
+(hbnb) show Place e9672773-b189-4938-93fa-3ee99abd60ca
+** no instance found **
+(hbnb) quit
 
 ```
 ### Environment
