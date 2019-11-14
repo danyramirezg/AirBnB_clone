@@ -114,6 +114,11 @@ e9672773-b189-4938-93fa-3ee99abd60ca
 (hbnb) quit
 
 ```
+### UML of AirBnB console
+
+![UML]("UML of AirBnB console.jpg")
+
+
 ### Environment
 * Language: Python3
 * OS: Ubuntu 14.04 LTS
