@@ -47,6 +47,7 @@ class Test_File_Storage(unittest.TestCase):
     def test_save(self):
         """Testing the save function"""
         obj = BaseModel()
+        self.assertIsInstance(obj, FileStorage)
         self.storage.new(obj)
         self.storage.save()
         self.assertTrue(self.storage._FileStorage__file_path)
