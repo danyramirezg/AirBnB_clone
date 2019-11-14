@@ -53,5 +53,6 @@ class Test_File_Storage(unittest.TestCase):
         self.assertTrue(self.storage._FileStorage__objects)
         self.assertTrue(os.path.isfile(self.storage._FileStorage__file_path))
         key = "BaseModel.{}".format(obj.id)
+        self.storage._FileStorage__objects = {}
         self.storage.reload()
         self.assertDictEqual(self.storage.all()[key].to_dict(), obj.to_dict())
