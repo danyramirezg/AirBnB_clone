@@ -50,22 +50,9 @@ class Test_File_Storage(unittest.TestCase):
         self.storage.new(obj)
         self.storage.save()
         key = "BaseModel.{}".format(obj.id)
-        #comp = storage._FileStorage__objects[key]
         self.storage.reload()
         self.assertDictEqual(self.storage.all()[key].to_dict(), obj.to_dict())
 
     def test_path(self):
         """Testing if the path exists"""
-        self.assertTrue(os.path.exists(self.storage._FileStorage__file_path))
-
-
-        # def test_tearDown(self):
-        #      """"Restart tests"""
-        #  if os.path.exists(self.file_path):
-        #     os.remove(self.file_path)
-        # if os.path.exists('file.json')
-        #   os.rename('file.json', self.file_path)
-
-    #def test_reload(self):
-
-    # test reload, all, save
+        self.assertTrue(self.storage._FileStorage__file_path)
