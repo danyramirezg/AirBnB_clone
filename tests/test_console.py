@@ -12,6 +12,7 @@ from console import HBNBCommand
 
 class Test_BaseModel(unittest.TestCase):
     """Class for testing the console."""
+
     def test_pep8_console(self):
         """ Test for PEP8 ok. """
         pep8style = pep8.StyleGuide(quiet=True)
@@ -66,4 +67,3 @@ class Test_BaseModel(unittest.TestCase):
         self.assertIsNotNone(HBNBCommand().do_all.__doc__)
         self.assertIsNotNone(HBNBCommand().do_update.__doc__)
         self.assertIsNotNone(HBNBCommand().default.__doc__)
-
