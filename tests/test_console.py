@@ -45,3 +45,25 @@ class Test_BaseModel(unittest.TestCase):
         self.assertNotEqual(cont_help, "*** No help on help\n")
         self.assertNotEqual(cont_show, "*** No help on show\n")
         self.assertNotEqual(cont_update, "*** No help on update\n")
+
+    def test_docstring_console(self):
+        """Checks docstring in the console"""
+        self.assertIsNot(console.__doc__, None,
+                         "Please write a docstring")
+        self.assertTrue(len(console.__doc__) >= 1,
+                        "Please write a docstring"
+                        )
+
+    def test_docstrings_in_console(self):
+        """Checks docstring in the console's methods"""
+        self.assertIsNotNone(console.__doc__)
+        self.assertIsNotNone(HBNBCommand().do_quit.__doc__)
+        self.assertIsNotNone(HBNBCommand().do_create.__doc__)
+        self.assertIsNotNone(HBNBCommand().do_EOF.__doc__)
+        self.assertIsNotNone(HBNBCommand().emptyline.__doc__)
+        self.assertIsNotNone(HBNBCommand().do_show.__doc__)
+        self.assertIsNotNone(HBNBCommand().do_destroy.__doc__)
+        self.assertIsNotNone(HBNBCommand().do_all.__doc__)
+        self.assertIsNotNone(HBNBCommand().do_update.__doc__)
+        self.assertIsNotNone(HBNBCommand().default.__doc__)
+
