@@ -49,10 +49,9 @@ class Test_File_Storage(unittest.TestCase):
         obj = BaseModel()
         self.storage.new(obj)
         self.storage.save()
+        self.assertTrue(self.storage._FileStorage__file_path)
+        self.assertTrue(self.storage._FileStorage__objects)
+        self.assertTrue(os.path.isfile(self.storage._FileStorage__file_path))
         key = "BaseModel.{}".format(obj.id)
         self.storage.reload()
         self.assertDictEqual(self.storage.all()[key].to_dict(), obj.to_dict())
-
-    def test_path(self):
-        """Testing if the path exists"""
-        self.assertTrue(self.storage._FileStorage__file_path)
