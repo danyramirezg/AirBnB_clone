@@ -22,7 +22,7 @@ git clone https://github.com/danyramirezg/AirBnB_clone.git
 cd AirBnB_clone
 ```
 #### Usage
-#####Interactive Mode
+##### Interactive Mode
 ```
 $ ./console.py
 (hbnb) help
