@@ -116,7 +116,7 @@ e9672773-b189-4938-93fa-3ee99abd60ca
 ```
 ### UML of AirBnB console
 
-![UML]("UML of AirBnB console.jpeg")
+![UML](UML of AirBnB console.jpeg)
 
 
 ### Environment
